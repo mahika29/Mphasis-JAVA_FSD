@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xmlns:aop="http://www.springframework.org/schema/aop"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+<bean id = "adr1" class = "com.test.Address">
+
+<property name = "city" value = "Bengaluru"></property>
+<property name = "state" value = "Karanataka"></property>
+</bean>
+
+<bean id = "adr2" class = "com.test.Address">
+
+<property name = "city" value = "Pune"></property>
+<property name = "state" value = "MH"></property>
+</bean>
+
+<bean id ="emp" class = "com.test.Employee" scope = "singleton" autowire = "default">
+<property name = "id" value = "101"></property>
+<property name = "name" value = "Mahika"></property>
+<property name = "company" value = "bahsgqe"></property>
+<!-- the adr is an object which we call to employee soo we have to write it like this -->
+<property name = "adr"> 
+<list>
+<ref bean = "adr1"/>
+<ref bean = "adr2"/>
+</list>
+
+
+</property>
+</bean>
+</beans>
+
+
